@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task_gain_solution/core/common_widgets/custom_text.dart';
+import 'package:flutter_task_gain_solution/core/utils/app_color.dart';
 import 'package:flutter_task_gain_solution/features/ticket/presentation/screens/widgets/loaded_filter_view.dart';
 import '../../../../core/di/injector.dart';
 import '../cubit/filter_cubit.dart';
@@ -23,7 +25,7 @@ class _FilterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F7FB),
+      backgroundColor: whiteColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -31,12 +33,21 @@ class _FilterView extends StatelessWidget {
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text("Filters"),
+        title: const CustomText(
+          text: "Filters",
+          fontSize: 16.0,
+          fontWeight: FontWeight.w600,
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(16),
-            child: Text("Apply"),
-          )
+            child: CustomText(
+              text: "Apply",
+              color: Color(0xFFB7B7B7),
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
       body: BlocBuilder<FilterCubit, FilterState>(
@@ -59,6 +70,3 @@ class _FilterView extends StatelessWidget {
     );
   }
 }
-
-
-

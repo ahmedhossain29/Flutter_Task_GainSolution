@@ -72,6 +72,7 @@ class _LoadedFilterViewState extends State<LoadedFilterView> {
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
+                icon: Icon(Icons.keyboard_arrow_down_rounded),
                 hint: const CustomText(text: "Select priority"),
                 value: selectedPriority,
                 isExpanded: true,
@@ -99,7 +100,7 @@ class _LoadedFilterViewState extends State<LoadedFilterView> {
               hintText: "Search tags",
               prefixIcon: const Icon(Icons.search),
               filled: true,
-              fillColor: Colors.white,
+              fillColor: Color(0xFFF3F4F8),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none,
