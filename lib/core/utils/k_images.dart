@@ -2,12 +2,12 @@ class KImages{
 
 
   ///Navigation Bar
-  static const String ticketIcon = 'assets/icons/home.svg';
-  static const String ticketIconActive = 'assets/icons/home.svg';
-  static const String contactIcon = 'assets/icons/home.svg';
-  static const String contactIconActive = 'assets/icons/home.svg';
-  static const String profileIcon = 'assets/icons/home.svg';
-  static const String profileIconActive = 'assets/icons/home.svg';
+  static const String ticketIcon = 'assets/icons/ticket_icon.svg';
+  static const String ticketIconActive = 'assets/icons/ticket_icon.svg';
+  static const String contactIcon = 'assets/icons/user_icon.svg';
+  static const String contactIconActive = 'assets/icons/user_icon.svg';
+  static const String profileIcon = 'assets/icons/user_icon.svg';
+  static const String profileIconActive = 'assets/icons/user_icon.svg';
 
 
   static const String dialogIcon = 'assets/icons/dialog_icon.svg';

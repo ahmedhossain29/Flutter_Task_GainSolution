@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'core/di/injector.dart' as di;
 import 'core/routes/app_routes.dart';
 import 'core/utils/app_color.dart';
 import 'features/home/presentation/widgets/fetch_error_text.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+
   runApp(const MyApp());
 }
 
