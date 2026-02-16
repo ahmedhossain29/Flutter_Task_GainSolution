@@ -1,5 +1,10 @@
 import 'package:get_it/get_it.dart';
 
+import '../../features/contact/data/datasources/contact_local_datasources.dart';
+import '../../features/contact/data/repositories/contact_repository_impl.dart';
+import '../../features/contact/domain/repositories/contact_repository.dart';
+import '../../features/contact/domain/usecase/get_contacts.dart';
+import '../../features/contact/presentation/cubit/contact_cubit.dart';
 import '../../features/ticket/data/datasources/filter_local_datasource.dart';
 import '../../features/ticket/data/datasources/ticket_local_datasource.dart';
 import '../../features/ticket/data/repositories/filter_repository_impl.dart';
@@ -54,5 +59,27 @@ Future<void> init() async {
   sl.registerFactory<FilterCubit>(
         () => FilterCubit(sl()),
   );
+
+
+  /// CONTACT DATASOURCE
+  sl.registerLazySingleton<ContactLocalDataSource>(
+        () => ContactLocalDataSource(),
+  );
+
+  /// CONTACT REPOSITORY
+  sl.registerLazySingleton<ContactRepository>(
+        () => ContactRepositoryImpl(sl()),
+  );
+
+  /// CONTACT USECASE
+  sl.registerLazySingleton<GetContacts>(
+        () => GetContacts(sl()),
+  );
+
+  /// CONTACT CUBIT
+  sl.registerFactory<ContactCubit>(
+        () => ContactCubit(sl()),
+  );
+
 
 }

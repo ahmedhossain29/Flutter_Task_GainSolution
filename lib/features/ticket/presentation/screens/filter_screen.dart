@@ -57,7 +57,7 @@ class _FilterView extends StatelessWidget {
           }
 
           if (state is FilterError) {
-            return const Center(child: Text("Failed to load filters"));
+            return const Center(child: CustomText(text: "Failed to load filters"));
           }
 
           if (state is FilterLoaded) {
