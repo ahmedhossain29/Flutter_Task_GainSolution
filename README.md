@@ -1,4 +1,4 @@
-Flutter Task – Gain Solutions Ltd
+# **Flutter Task – Gain Solutions Ltd**
 
 This project is a simple Flutter mobile application developed as part of the technical assessment for the Mobile App Developer (Flutter) position at Gain Solutions Ltd.
 
