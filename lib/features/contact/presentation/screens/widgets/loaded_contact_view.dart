@@ -31,7 +31,6 @@ class LoadedContactView extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
             ),
-            //  onChanged: (v) => setState(() => searchText = v.toLowerCase()),
           ),
           Utils.verticalSpace(20.0),
           const CustomText(
@@ -77,7 +76,7 @@ class ContactCard extends StatelessWidget {
                 borderWidth: 3,
               ),
 
-              const SizedBox(width: 12),
+             Utils.horizontalSpace(12.0),
 
               Expanded(
                 child: CustomText(
@@ -95,9 +94,9 @@ class ContactCard extends StatelessWidget {
                 ),
                 itemBuilder:
                     (context) => const [
-                      PopupMenuItem(child: Text("Edit")),
-                      PopupMenuItem(child: Text("View tickets")),
-                      PopupMenuItem(child: Text("Delete")),
+                      PopupMenuItem(child: CustomText(text: "Edit")),
+                      PopupMenuItem(child: CustomText(text: "View tickets")),
+                      PopupMenuItem(child: CustomText(text: "Delete")),
                     ],
               ),
             ],
@@ -129,7 +128,6 @@ class _InfoRow extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 16, color: Colors.grey),
-
         Utils.horizontalSpace(4.0),
         Expanded(
           child: CustomText(

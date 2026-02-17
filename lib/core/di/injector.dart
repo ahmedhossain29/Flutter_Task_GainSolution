@@ -5,6 +5,11 @@ import '../../features/contact/data/repositories/contact_repository_impl.dart';
 import '../../features/contact/domain/repositories/contact_repository.dart';
 import '../../features/contact/domain/usecase/get_contacts.dart';
 import '../../features/contact/presentation/cubit/contact_cubit.dart';
+import '../../features/profile/data/datasources/profile_local_datasource.dart';
+import '../../features/profile/data/repositories/profile_repository_impl.dart';
+import '../../features/profile/domain/repositories/profile_repository.dart';
+import '../../features/profile/domain/usecases/get_profile.dart';
+import '../../features/profile/presentation/cubit/profile_cubit.dart';
 import '../../features/ticket/data/datasources/filter_local_datasource.dart';
 import '../../features/ticket/data/datasources/ticket_local_datasource.dart';
 import '../../features/ticket/data/repositories/filter_repository_impl.dart';
@@ -81,5 +86,21 @@ Future<void> init() async {
         () => ContactCubit(sl()),
   );
 
+/// profile
+  sl.registerLazySingleton<ProfileLocalDataSource>(
+        () => ProfileLocalDataSource(),
+  );
+
+  sl.registerLazySingleton<ProfileRepository>(
+        () => ProfileRepositoryImpl(sl()),
+  );
+
+  sl.registerLazySingleton<GetProfile>(
+        () => GetProfile(sl()),
+  );
+
+  sl.registerFactory<ProfileCubit>(
+        () => ProfileCubit(sl()),
+  );
 
 }
