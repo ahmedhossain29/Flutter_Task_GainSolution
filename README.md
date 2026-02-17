@@ -87,6 +87,6 @@ This project focuses on:
 
 
 
-**Developed by
-Hossain Ahmed**
+**Developed by**
+**Hossain Ahmed**
 Flutter Developer
