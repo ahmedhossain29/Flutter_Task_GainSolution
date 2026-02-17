@@ -15,7 +15,6 @@ class TicketHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Title + notification
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -25,7 +24,6 @@ class TicketHeader extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
 
-              /// Notification icon with badge
               Stack(
                 children: [
                   const Icon(Icons.notifications_none, size: 28),
@@ -50,9 +48,8 @@ class TicketHeader extends StatelessWidget {
             ],
           ),
 
-          Utils.verticalSpace(20.0),
+          Utils.verticalSpace(24.0),
 
-          /// Ticket count + filter
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -62,7 +59,6 @@ class TicketHeader extends StatelessWidget {
                 fontSize: 14.0,
               ),
 
-              /// Filter icon
               GestureDetector(
                 onTap: () => _openFilter(context),
                 child: const Icon(Icons.filter_alt_outlined),

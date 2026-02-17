@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task_gain_solution/core/common_widgets/custom_text.dart';
 
 import '../../../domain/entities/ticket.dart';
+
 class TopBadge extends StatelessWidget {
   final TicketLabel label;
 
@@ -38,13 +40,7 @@ class TopBadge extends StatelessWidget {
         color: bg,
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: fg,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
+      child: CustomText(text: text, color: fg, fontWeight: FontWeight.w500),
     );
   }
 }

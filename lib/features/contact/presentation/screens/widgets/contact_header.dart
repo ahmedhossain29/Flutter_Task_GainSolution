@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/common_widgets/custom_text.dart';
+
 class ContactHeader extends StatelessWidget {
   const ContactHeader({super.key});
 
@@ -10,7 +11,6 @@ class ContactHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// Title + notification
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -20,7 +20,6 @@ class ContactHeader extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
 
-              /// Notification icon with badge
               Stack(
                 children: [
                   const Icon(Icons.notifications_none, size: 28),
@@ -34,9 +33,10 @@ class ContactHeader extends StatelessWidget {
                         color: Colors.red,
                         shape: BoxShape.circle,
                       ),
-                      child: const CustomText(text:
-                      "3",
-                        color: Colors.white, fontSize: 10,
+                      child: const CustomText(
+                        text: "3",
+                        color: Colors.white,
+                        fontSize: 10,
                       ),
                     ),
                   ),
@@ -44,12 +44,8 @@ class ContactHeader extends StatelessWidget {
               ),
             ],
           ),
-
-
         ],
       ),
     );
   }
-
-
 }

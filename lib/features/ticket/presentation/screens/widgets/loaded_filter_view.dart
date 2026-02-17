@@ -31,7 +31,7 @@ class _LoadedFilterViewState extends State<LoadedFilterView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const _SectionTitle("Brand"),
-          const SizedBox(height: 12),
+          Utils.verticalSpace(12.0),
 
           ...widget.data.brands.map((b) {
             final checked = selectedBrands.contains(b);

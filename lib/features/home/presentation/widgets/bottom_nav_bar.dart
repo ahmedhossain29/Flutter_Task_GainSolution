@@ -1,11 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_task_gain_solution/features/home/presentation/widgets/main_controller.dart';
-
 import '../../../../core/utils/app_color.dart';
-import '../../../../core/utils/k_images.dart';
+
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar({super.key});
@@ -13,64 +10,99 @@ class MyBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = MainController();
+
     return Container(
       height: Platform.isAndroid ? 100 : 110,
       decoration: BoxDecoration(
-          color: whiteColor,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
+        color: whiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF000000).withOpacity(0.12),
+            blurRadius: 20,
+            offset: const Offset(0, -2),
           ),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF000000).withOpacity(0.12), //#0000001F
-              blurRadius: 40.0,
-              offset: const Offset(0, 4),
-              spreadRadius: 0,
-            ),
-          ]
+        ],
       ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-        child: StreamBuilder(
-          initialData: 0,
-          stream: controller.naveListener.stream,
-          builder: (_, AsyncSnapshot<int> index) {
-            int selectedIndex = index.data ?? 0;
-            return BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: _navIcon(KImages.ticketIcon),
-                  activeIcon: _navIcon(KImages.ticketIconActive),
-                  label: 'Tickets'
-                ),
-                BottomNavigationBarItem(
-                  icon: _navIcon(KImages.contactIcon),
-                  activeIcon: _navIcon(KImages.contactIconActive),
-                  label: 'Contacts',
-                ),
-                BottomNavigationBarItem(
-                  icon: _navIcon(KImages.profileIcon),
-                  activeIcon: _navIcon(KImages.profileIconActive),
-                  label: 'Profile',
-                ),
+      child: StreamBuilder<int>(
+        initialData: 0,
+        stream: controller.naveListener.stream,
+        builder: (_, snapshot) {
+          final selectedIndex = snapshot.data ?? 0;
 
-              ],
-              // type: BottomNavigationBarType.fixed,
-              currentIndex: selectedIndex,
-              onTap: (int index) {
-                controller.naveListener.sink.add(index);
-              },
-            );
-          },
-        ),
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: selectedIndex,
+            onTap: controller.naveListener.sink.add,
+
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+
+            selectedItemColor: const Color(0xFF3B3B3B),
+            unselectedItemColor: const Color(0xFF3B3B3B),
+
+            selectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+
+            ),
+            unselectedLabelStyle: const TextStyle(fontSize: 11,
+              fontWeight: FontWeight.w500,),
+
+            items: [
+              _item(
+                icon: Icons.confirmation_number_outlined,
+                activeIcon: Icons.confirmation_number,
+                label: 'Tickets',
+                selected: selectedIndex == 0,
+              ),
+              _item(
+                icon: Icons.people_outline,
+                activeIcon: Icons.people,
+                label: 'Contacts',
+                selected: selectedIndex == 1,
+              ),
+              _item(
+                icon: Icons.person_outline,
+                activeIcon: Icons.person,
+                label: 'Profile',
+                selected: selectedIndex == 2,
+              ),
+            ],
+          );
+        },
       ),
     );
   }
 
-  Widget _navIcon(String path) => Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: SvgPicture.asset(path));
+  BottomNavigationBarItem _item({
+    required IconData icon,
+    required IconData activeIcon,
+    required String label,
+    required bool selected,
+  }) {
+    return BottomNavigationBarItem(
+      label: label,
+      icon: _pillIcon(icon, selected: false),
+      activeIcon: _pillIcon(activeIcon, selected: true),
+    );
+  }
+
+  /// 🔹 pill background for selected tab
+  Widget _pillIcon(IconData icon, {required bool selected}) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      decoration: BoxDecoration(
+        color: selected ? const Color(0xFFE6F6FC) : Colors.transparent,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Icon(
+        icon,
+        size: 22,
+        color: selected ? const Color(0xFF2F80ED) : Colors.grey,
+      ),
+    );
+  }
 }
+
 

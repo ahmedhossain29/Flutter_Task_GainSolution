@@ -17,7 +17,6 @@ class LoadedProfileView extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            /// header
             Container(
               padding: const EdgeInsets.all(16),
               color: const Color(0xFFE6F6FC),
@@ -25,7 +24,6 @@ class LoadedProfileView extends StatelessWidget {
                 children: [
                   BorderedAvatar(imageUrl: profile.image, radius: 28),
                   const SizedBox(width: 12),
-
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +43,6 @@ class LoadedProfileView extends StatelessWidget {
               ),
             ),
 
-            /// body
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -64,7 +61,6 @@ class LoadedProfileView extends StatelessWidget {
 
                   Utils.verticalSpace(24.0),
 
-                  /// Assigned roles
                   CustomText(
                     text: "Assigned roles (${profile.roles.length})",
                     fontWeight: FontWeight.w600,
@@ -88,7 +84,6 @@ class LoadedProfileView extends StatelessWidget {
 
                   Utils.verticalSpace(30.0),
 
-                  /// Logout button
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 14),
@@ -99,7 +94,7 @@ class LoadedProfileView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.logout,color: redColor,),
+                        Icon(Icons.logout, color: redColor),
                         Utils.horizontalSpace(20.0),
                         CustomText(
                           text: "Log out",

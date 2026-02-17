@@ -28,6 +28,7 @@ class _ProfileView extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
+        backgroundColor: whiteColor,
         automaticallyImplyLeading: false,
         title: CustomText(
           text: "My Profile",

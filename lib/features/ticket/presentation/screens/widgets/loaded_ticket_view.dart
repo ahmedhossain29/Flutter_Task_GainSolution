@@ -13,7 +13,6 @@ class LoadedTicketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         const TicketHeader(),
@@ -50,12 +49,10 @@ class TicketCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// 🔹 TOP BADGE
           TopBadge(label: ticket.label),
 
           if (ticket.label != TicketLabel.none) const SizedBox(height: 8),
 
-          /// ID
           CustomText(
             text: "#ID ${ticket.id}",
             color: Color(0xFFB7B7B7),
@@ -65,7 +62,6 @@ class TicketCard extends StatelessWidget {
 
           Utils.verticalSpace(8.0),
 
-          /// TITLE
           CustomText(
             text: ticket.title,
             fontWeight: FontWeight.w600,
@@ -75,9 +71,8 @@ class TicketCard extends StatelessWidget {
 
           Utils.verticalSpace(8.0),
 
-          /// USER + DATE
-          CustomText(text:
-            "${ticket.user}  •  ${ticket.date}",
+          CustomText(
+            text: "${ticket.user}  •  ${ticket.date}",
             color: Colors.grey,
           ),
 
@@ -88,7 +83,6 @@ class TicketCard extends StatelessWidget {
             color: Color(0xFFD8E0ED),
           ),
           Utils.verticalSpace(12.0),
-          /// TAGS WITH DOT
           Wrap(
             spacing: 8,
             children:
@@ -123,13 +117,12 @@ class _TagChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        border: Border.all(color:Color(0xFFD8E0ED)),
+        border: Border.all(color: Color(0xFFD8E0ED)),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          /// DOT
           Container(
             width: 6,
             height: 6,
@@ -137,7 +130,7 @@ class _TagChip extends StatelessWidget {
             decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle),
           ),
 
-          Text(label),
+          CustomText(text:label),
         ],
       ),
     );
